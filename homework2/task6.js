@@ -31,7 +31,7 @@ function getLastNumber(priceAll) {
  * @returns {string} - строка со словом  «рубль» в правильном падеже
  */
 function setDeclension(lastNumber) {
-    // if (lastNumber == 1) return 'рубль успешно зачислена.'
+
     if (lastNumber >= 11 && lastNumber <= 19) return ' рублей успешно зачислена.'
 
     let remainderOfDivision = lastNumber % 10;
