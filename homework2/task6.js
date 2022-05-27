@@ -7,6 +7,7 @@
 То есть ваша задача выводить слово «рубль» в правильном падеже, в зависимости от введенного
 числа.
 */
+'use strict';
 
 let price = prompt('Введите сумму в рублях, которую вы хотите положить на счет в банке');
 
@@ -32,7 +33,7 @@ function getLastNumber(priceAll) {
  */
 function setDeclension(lastNumber) {
 
-    if (lastNumber >= 11 && lastNumber <= 19) return ' рублей успешно зачислена.'
+    if (lastNumber >= 11 && lastNumber <= 14) return ' рублей успешно зачислена.'
 
     let remainderOfDivision = lastNumber % 10;
 
@@ -45,7 +46,7 @@ function setDeclension(lastNumber) {
 }
 
 /**
- * Функция, которая получает строку от пользователя и выводит для него информацию
+ * Функция, которая получает строку от пользователя и выводит для него информацию без копеек
  * @param {string} priceUser - строка, которую ввел пользователь
  * @returns {string} - строка для вывода информации пользователю
  */
@@ -53,9 +54,11 @@ function setStringForUser(priceUser) {
     if (isNaN(priceUser)) return 'Вы не ввели сумму! Попробуйте еще раз.'
     if (priceUser == null || priceUser == undefined) return 'Вы не правильно ввели сумму! Попробуйте еще раз.'
     if (Number(priceUser) < 0) return 'Сумма не может быть отрицательной! Попробуйте еще раз.'
-    let stringForUser = 'Ваша сумма в ';
-    stringForUser += priceUser + setDeclension(getLastNumber(priceUser));
-    return stringForUser;
+    if (Number.isInteger(priceUser)) {
+        let stringForUser = 'Ваша сумма в ';
+        stringForUser += priceUser + setDeclension(getLastNumber(priceUser));
+        return stringForUser;
+    } return setStringForUser(parseInt(priceUser));
 }
 
 alert(setStringForUser(price));
