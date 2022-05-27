@@ -7,6 +7,7 @@ xxx
 xxxx
 xxxxx
 */
+'use strict';
 
 let strX = '';
 

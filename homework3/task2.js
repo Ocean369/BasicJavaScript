@@ -1,3 +1,5 @@
+'use strict';
+
 const post = {
     author: "John", //вывести этот текст 
     postId: 23,
