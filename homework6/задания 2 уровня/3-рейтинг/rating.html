@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <style>
+        i {
+            font-size: 50px;
+        }
+
+        .golden {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <i id="first" class="fas fa-star"></i>
+    <i id="second" class="fas fa-star"></i>
+    <i id="third" class="fas fa-star"></i>
+    <i id="fourth" class="fas fa-star"></i>
+    <i id="fifth" class="fas fa-star"></i>
+
+    <!-- Задание. Используя заготовку, сделайте чтобы при наведении на вторую звезду
+    подсвечивались первая и вторая звезды. При наведени на третью звезду подсвечивались
+    первая, вторая и третья звезды, и т.д. 
+    mouseover - это событие срабатывает когда мы наводим на элемент.
+    mouseout - это событие срабатывает когда мы перестаем наводить на элемент.
+	Вы можете пойти более продвинутым путем, и получать предыдущий элемент 
+	например с помощью https://mzl.la/3a4SPlR
+    -->
+
+    <script>
+        let firstStar = document.getElementById('first');
+        let secondStar = document.getElementById('second');
+        let thirdStar = document.getElementById('third');
+        let fourthStar = document.getElementById('fourth');
+        let fifthStar = document.getElementById('fifth');
+
+        let goldenClass = 'golden';
+
+        firstStar.addEventListener('mouseover', function () {
+            if (!firstStar.classList.contains(goldenClass)) {
+                firstStar.classList.add(goldenClass);
+            }
+        });
+
+        firstStar.addEventListener('mouseout', function () {
+            firstStar.classList.remove(goldenClass);
+        });
+
+        secondStar.addEventListener('mouseover', function () {
+            for (let i = 1; i <= 2; i++) {
+                starsClassContains(i);
+            }
+        })
+
+        secondStar.addEventListener('mouseout', function () {
+            for (let i = 1; i <= 2; i++) {
+                starsRemoveClass(i);
+            }
+        })
+
+        thirdStar.addEventListener('mouseover', function () {
+            for (let i = 1; i <= 3; i++) {
+                starsClassContains(i);
+            }
+        })
+
+        thirdStar.addEventListener('mouseout', function () {
+            for (let i = 1; i <= 3; i++) {
+                starsRemoveClass(i);
+            }
+        })
+
+        fourthStar.addEventListener('mouseover', function () {
+            for (let i = 1; i <= 4; i++) {
+                starsClassContains(i);
+            }
+        })
+
+        fourthStar.addEventListener('mouseout', function () {
+            for (let i = 1; i <= 4; i++) {
+                starsRemoveClass(i);
+            }
+        })
+
+        fifthStar.addEventListener('mouseover', function () {
+            for (let i = 1; i <= 5; i++) {
+                starsClassContains(i);
+            }
+        })
+
+        fifthStar.addEventListener('mouseout', function () {
+            for (let i = 1; i <= 5; i++) {
+                starsRemoveClass(i);
+            }
+        })
+
+        function starsClassContains(index) {
+            switch (index) {
+                case 1:
+                    if (!firstStar.classList.contains(goldenClass)) {
+                        firstStar.classList.add(goldenClass);
+                    }
+                    break;
+                case 2:
+                    if (!secondStar.classList.contains(goldenClass)) {
+                        secondStar.classList.add(goldenClass);
+                    }
+                    break;
+                case 3:
+                    if (!thirdStar.classList.contains(goldenClass)) {
+                        thirdStar.classList.add(goldenClass);
+                    }
+                    break;
+                case 4:
+                    if (!fourthStar.classList.contains(goldenClass)) {
+                        fourthStar.classList.add(goldenClass);
+                    }
+                    break;
+                case 5:
+                    if (!fifthStar.classList.contains(goldenClass)) {
+                        fifthStar.classList.add(goldenClass);
+                    }
+                    break;
+            }
+        }
+
+        function starsRemoveClass(index) {
+            switch (index) {
+                case 1:
+                    firstStar.classList.remove(goldenClass);
+                    break;
+                case 2:
+                    secondStar.classList.remove(goldenClass);
+                    break;
+                case 3:
+                    thirdStar.classList.remove(goldenClass);
+                    break;
+                case 4:
+                    fourthStar.classList.remove(goldenClass);
+                    break;
+                case 5:
+                    fifthStar.classList.remove(goldenClass);
+                    break;
+            }
+        }
+
+//  второй вариант
+        // let starsBody = document.querySelector('body');
+        // let stars = document.querySelectorAll('i');
+
+        // starsBody.addEventListener('mouseover', function (event) {
+        //     let starId = event.target.id;
+        //     stars.forEach((star, starIndex) => {
+        //         if (star === event.target) {
+        //             for (let i = 0; i <= starIndex; i++) {
+        //                 if (!stars[i].classList.contains(goldenClass)) {
+        //                     stars[i].classList.add(goldenClass);
+        //                 }
+        //             }
+        //         }
+        //     });
+        // })
+
+        // starsBody.addEventListener('mouseout', function (event) {
+        //     let starId = event.target.id;
+        //     stars.forEach((star, starIndex) => {
+        //         if (star === event.target) {
+        //             for (let i = 0; i <= starIndex; i++) {
+        //                 stars[i].classList.remove(goldenClass);
+        //             }
+        //         }
+        //     });
+        // })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
