@@ -113,11 +113,19 @@ function addCountCard(count) {
 }
 
 /**
- *  Получает данные(название и цену) из карточки товара, которую выбрал пользователь
- * увеличивает счетчик у корзины на 1 товар
- * @param {event} event кнопка "add to card" у продуктов
- * @returns Объект с названием и ценой товара
+ * @typedef {Object} AddToCart
+ * @property {string} name - название товара
+ * @property {number} price - ценой товара
  */
+
+/**
+ * Функция-обработчик события клика по кнопке "Add to cart".
+ * Получает данные(название и цену) из карточки товара, которую выбрал пользователь, 
+ * и увеличивает счетчик у корзины на 1 товар
+ * @param {MouseEvent} event кнопка "add to card" у продуктов
+ * @returns {AddToCart} Объект с названием  и ценой товара 
+ */
+
 function searchDataCartProduct(event) {
     let parentBtnCard = event.currentTarget.parentNode.parentNode.nextSibling;
 
@@ -136,14 +144,15 @@ function searchDataCartProduct(event) {
 }
 
 /**
- * Обработка клика
+ * Обработка клика по корзине в верхнем меню сайта
+ * Делает видимой  для пользователя или скрывает от него таблицу с добавленными товарами
  */
 cart.onclick = () => {
     document.querySelector('.cartUser').classList.toggle('show-block');
 }
 
 /**
- * Coздает макет таблицы и записывает первую строку с оглавлением столбцов
+ * Coздает макет таблицы 
  */
 function createTable() {
     document.querySelector('.menu').insertAdjacentHTML('afterend', '<div class="cartUser"></div>');
@@ -199,7 +208,6 @@ function createTFoot() {
     rowFoot.appendChild(footer);
     rowFoot.appendChild(finalPrice);
     tfoot.appendChild(rowFoot);
-
 }
 
 /**
@@ -207,8 +215,8 @@ function createTFoot() {
  * @param {object} product продукт выбранный пользователем
  * @param {string} product.name название выбранного товара
  * @param {number} product.price цена за один выбранный товар
- * @param {number} product.count кол-во единиц общая цена выбранного товара
- * @param {number} product.totalAmount 
+ * @param {number} product.count кол-во единиц выбранного товара
+ * @param {number} product.totalAmount общая цена выбранного товара
  */
 function addProductToCart(product) {
 
@@ -224,7 +232,7 @@ function addProductToCart(product) {
 }
 
 /**
- * Увеличивыет кол-во выбранного пользователем товара на 1 и пересчитывает итоговые суммы
+ * Увеличивает кол-во выбранного пользователем товара на 1 и пересчитывает итоговые суммы
  * @param {object} item Товар выбранный пользователем
  * @param {string} item.name название товара
  * @param {number} item.price цена за единицу товара
