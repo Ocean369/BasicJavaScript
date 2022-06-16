@@ -2,8 +2,6 @@
 let filterActive = document.querySelector('.filter');
 let btnFilter = document.querySelector('.basic');
 let categoryActive = document.querySelector('.categoryMenu');
-let brandActive = document.querySelector('.brandMenu');
-let designerActive = document.querySelector('.designerMenu');
 let menuItems = document.querySelector('.menuItems');
 let btnSize = document.querySelector('.size a');
 let formSize = document.querySelector('.size-sort');
